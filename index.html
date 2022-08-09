@@ -1,0 +1,91 @@
+<html>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit" />
+
+<body>
+    <div id="main">
+        <ul class="ul-h">
+            <li class="li-h">
+                <h1 style="cursor: pointer; margin: -5%; padding: 0px 10px;" onclick="openNav()">&#9783;</h1>
+            </li>
+            <li class="li-h"><a class="active" href="#">Home</a></li>
+            <li class="li-h"><a href="#">Cart</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+                <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+            </li>
+            <div style="float: right;">
+                <li class="li-h"><a href="#" id="print" onclick="openLogin()" style="float: right;">Login</a></li>
+            </div>
+        </ul>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="login" id="mylogin">
+        <p id="error_msg"></p>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeLogin()">&times;</a>
+        <form name="loginform">
+            <center>
+                <h3>USER NAME</h3>
+                <input name="name" />
+                <h3>PASSWORD</h3>
+                <input type="password" name="pass" />
+                <br />
+                <p>
+                    <input type="checkbox" />Remember me <span style="float: right;"><a href="$">Forgot
+                            password? </a></span><br />
+                </p>
+                <input type="button" value="login" onclick="validate();" />
+            </center>
+        </form>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "15%";
+            document.getElementById("main").style.marginLeft = "10%";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function openLogin() {
+            document.getElementById("mylogin").style.width = "25%";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+
+        function closeLogin() {
+            document.getElementById("mylogin").style.width = "0";
+            document.getElementById("mylogin").style.marginRight = " 0";
+            document.body.style.backgroundColor = "white";
+        }
+
+        function validate() {
+            if (loginform.name.value == "user" && loginform.pass.value == "pass") {
+                document.getElementById("print").innerHTML = loginform.name.value;
+                closeLogin();
+            } else {
+                document.getElementById("error_msg").innerHTML = "*Invalid password or Username";
+            }
+        }
+    </script>
+</body>
+
+</html>
